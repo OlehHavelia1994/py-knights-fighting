@@ -12,6 +12,6 @@ class KnightStatCalculator:
     def apply_potion(self) -> None:
         for key, _ in self.knights.items():
             if self.knights[key]["potion"] is not None:
-                for effect in self.knights[key]["potion"]["effect"].keys():
-                    if effect in self.knights[key]["potion"]["effect"]:
-                        self.knights[key][effect] += self.knights[key]["potion"]["effect"][effect]
+                for effect, value in (
+                        self.knights[key]["potion"]["effect"].items()):
+                    self.knights[key][effect] += value
